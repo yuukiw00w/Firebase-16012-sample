@@ -1,11 +1,11 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.2
 import PackageDescription
 
 let package = Package(
     name: "Firebase16012Sample",
     platforms: [
-        .macOS(.v13),
-        .iOS(.v16),
+        .macOS(.v26),
+        .iOS(.v26),
     ],
     dependencies: [
         .package(
@@ -14,11 +14,13 @@ let package = Package(
         ),
     ],
     targets: [
-        .executableTarget(
+        .target(
             name: "Firebase16012Sample",
             dependencies: [
-                .product(name: "FirebaseCore", package: "firebase-ios-sdk"),
-            ]
+                .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseMessaging", package: "firebase-ios-sdk"),
+            ],
         ),
     ]
 )
